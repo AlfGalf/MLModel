@@ -9,7 +9,7 @@ import numpy as np
 from m_utils import *
 from PIL import Image
 
-mod_path = '/Users/alfierichards/Documents/GitRepos/MLModel/model.pth'
+mod_path = '/Users/alfierichards/Documents/GitRepos/MLModel/learn_export.pth'
 
 learner = load_learner(mod_path)
 
