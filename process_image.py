@@ -6,23 +6,22 @@ from torch.autograd import Variable
 from fastai import *
 from fastai.vision.all import *
 import numpy as np
+import pathlib
+temp = pathlib.PosixPath
+pathlib.PosixPath = pathlib.WindowsPath
+from m_utils import *
 
-from m_utils import itoa
-
-mod_path = "/Users/alfierichards/Documents/GitRepos/IPPythonWebServer/MLModel"
+mod_path = 'C:\\Users\\Joseph\\Desktop\\Uni\\Y2\\IP\\IPPythonServer\\MLModel'
 
 # learn = synth_learner(path=mod_path)
 # learn = learn.load("model.pkl")
 
-learner = load_learner(mod_path + '/learn_export.pkl')
+learner = load_learner(mod_path + '\\export.pkl')
 
-def label_func(f):
-    return f[0]
-
-data_transforms = transforms.Compose([
-    transforms.Resize(size),
-    transforms.ToTensor()
-])
+#data_transforms = transforms.Compose([
+#    transforms.Resize(size),
+##    transforms.ToTensor()
+#])
 
 def image_loader(loader, image):
     image = loader(image).float()
@@ -32,9 +31,8 @@ def image_loader(loader, image):
 
 
 def predict_image(image):
-    print(image)
 
     out = learner.predict(image)
     print(out)
-    return 'A'
+    return out[0]
 
